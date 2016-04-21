@@ -1,0 +1,23 @@
+.header {
+  
+  color: #D3DAE4;
+  height: 140px;
+  background-color: #0E5595;
+}
+
+.header img{
+  max-height: 100px;
+  margin: 10px;
+}
+
+.footer {
+  background-color: #0E5595;
+  height: 50px;
+  color: #D3DAE4;
+  padding: 10px;
+}
+
+
+.footer p {
+  font-size: x-small;
+}
