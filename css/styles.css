@@ -1,31 +1,20 @@
 .container-header {
-  background-color: #283593;
+  background-color: #fdfdfd;
   color: #D3DAE4;
   height: 120px;
-}
-
-.header {
-  max-width: 960px;
-  margin-left: auto;
-  margin-right: auto; 
 }
 
 .header img{
   margin: 10px;
 }
 
-.page {
-  max-width: 960px;
-  margin-left: auto;
-  margin-right: auto;  
-}
+
 
 .container-footer {
    background-color: #0245AC;
 }
 
 .footer {
-  max-width: 960px;
   background-color: #0245AC;
   height: 50px;
   color: #D3DAE4;
@@ -40,6 +29,10 @@
 
 
 
+@media (min-width: 768px) { .navbar .collapse { display: block !important; } }
 
-
-
+@media (min-width: 1200px) {
+    .container{
+        max-width: 970px;
+    }
+}
