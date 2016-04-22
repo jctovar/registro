@@ -1,9 +1,9 @@
 <md-card ng-repeat="item in events" ng-click="null">
   <md-card-title>
     <md-card-title-text>
-      <span class="md-headline">{{ item.event_nombre }}</span>
-      <span class="md-subhead">{{ item.event_resumen }}</span>
-      <p>{{ item.event_fecha | date }} <md-button class="md-raised">Button</md-button></p>
+      <span class="md-headline">{{ item.event_name }}</span>
+      <span class="md-subhead">{{ item.event_summary }}</span>
+      <p>{{ item.event_date | date }} <md-button class="md-raised">Button</md-button></p>
     </md-card-title-text>
     <md-card-title-media>
       <div class="md-media-sm card-media"></div>
@@ -11,6 +11,6 @@
   </md-card-title>
   <md-card-actions layout="row" layout-align="end center">
     <md-button>Mas información</md-button>
-    <md-button>Registrse</md-button>
+    <md-button>Registrarse</md-button>
   </md-card-actions>
 </md-card>

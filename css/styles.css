@@ -1,23 +1,45 @@
-.header {
-  
+.container-header {
+  background-color: #283593;
   color: #D3DAE4;
-  height: 140px;
-  background-color: #0E5595;
+  height: 120px;
+}
+
+.header {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto; 
 }
 
 .header img{
-  max-height: 100px;
   margin: 10px;
 }
 
+.page {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;  
+}
+
+.container-footer {
+   background-color: #0245AC;
+}
+
 .footer {
-  background-color: #0E5595;
+  max-width: 960px;
+  background-color: #0245AC;
   height: 50px;
   color: #D3DAE4;
   padding: 10px;
+  margin-left: auto;
+  margin-right: auto; 
 }
-
 
 .footer p {
   font-size: x-small;
 }
+
+
+
+
+
+
