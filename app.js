@@ -27,6 +27,10 @@ angular.module('starter', ['ngRoute', 'ngResource', 'ngCookies', 'ngSanitize', '
           templateUrl: 'templates/about.html',
           controller: 'aboutCtrl'
         })
+        .when('/credits', {
+          templateUrl: 'templates/credits.html',
+          controller: 'creditsCtrl'
+        })
         .otherwise({
           redirectTo: '/',
           templateUrl: 'templates/main.html',

@@ -28,4 +28,10 @@ angular.module('main.controllers', [])
 
 .controller('aboutCtrl', function ($scope, $route, $routeParams, $location) {
       
+})
+
+.controller('creditsCtrl', function ($scope, $route, $routeParams, $location, credits) {
+      var query = credits.get(function() {
+        $scope.credits = query.credits; 
+      });
 });

@@ -14,4 +14,11 @@ angular.module('main.models', ['ngResource'])
     {
         'update': { method:'PUT' }
     });
-});
+})
+
+.factory('credits', function($resource, server_config) {
+	return $resource(server_config.url + '/credits/:id', { account_key : server_config.key, id : '@_id' },
+    {
+        'update': { method:'PUT' }
+    });
+});;
