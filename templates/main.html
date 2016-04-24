@@ -1,16 +1,48 @@
-<md-card ng-repeat="item in events" ng-click="null">
-  <md-card-title>
-    <md-card-title-text>
-      <span class="md-headline">{{ item.event_name }}</span>
-      <span class="md-subhead">{{ item.event_summary }}</span>
-      <p>{{ item.event_date | date }} <md-button class="md-raised">Button</md-button></p>
-    </md-card-title-text>
-    <md-card-title-media>
-      <div class="md-media-sm card-media"></div>
-    </md-card-title-media>
-  </md-card-title>
-  <md-card-actions layout="row" layout-align="end center">
-    <md-button>Mas información</md-button>
-    <md-button>Registrarse</md-button>
-  </md-card-actions>
-</md-card>
+<div class="container-page"> 
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Encuentro estudiantil</h1>
+      <p>¡inscribete a los talleres de psicologia!</p>
+      <p><a class="btn btn-primary btn-lg" href="#" role="button">Registrate</a></p>
+    </div>
+  </div>
+</div>
+<div class="container page">
+  <div class="row">
+    <div class="col-xs-6 col-md-4">
+      <ul class="list-group">
+        <li class="list-group-item">Ponentes</li>
+        <li class="list-group-item">Requisitos</li>
+        <li class="list-group-item">Costos</li>
+      </ul>
+    </div>
+    <div class="col-xs-12 col-md-8">
+      <h2 class="text-primary">
+        Eventos proximos a realizarse.
+      </h2>
+      <form class="form-inline">
+          <div class="input-group">
+              <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
+              <input type="search" class="form-control input-lg" placeholder="buscar evento..." ng-model="data.searchQuery">
+          </div>
+      </form>
+      <div class="media" ng-repeat="item in events | filter: data.searchQuery" ng-click="null">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="media-left">
+              <a href="#">
+                <img class="media-object image-list img-rounded" src="img/img_01.jpg" alt="image">
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">{{ item.event_name }}</h4>
+              <p>{{ item.event_summary }}</p>
+              <p>{{ item.event_date | date }} <md-button class="md-raised">Button</md-button></p>
+              <p><a href="#" class="btn btn-primary pull-right" role="button">Mas información</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,33 +1,55 @@
+body {
+  background-color: #fdfdfd;
+}
+
 .container-header {
   background-color: #fdfdfd;
   color: #D3DAE4;
-  height: 120px;
 }
 
 .header img{
   margin: 10px;
 }
 
-
-
 .container-footer {
-   background-color: #0245AC;
+   background-color: #fdfdfd;
 }
 
 .footer {
-  background-color: #0245AC;
-  height: 50px;
-  color: #D3DAE4;
+  height: 100px;
+  color: #111111;
   padding: 10px;
   margin-left: auto;
   margin-right: auto; 
+  
 }
 
 .footer p {
   font-size: x-small;
 }
 
+.container-page {
+  background-image: url("/img/main-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
+.page {
+  background-color: #ffffff;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.jumbotron {
+  background: rgb(50, 50, 50); /* This is for ie8 and below */
+  background: rgba(50, 50, 50, 0.5); 
+  color: #ffffff;
+  margin-top: 80px;
+}
+
+.image-list {
+  height: 64px;
+}
 
 @media (min-width: 768px) { .navbar .collapse { display: block !important; } }
 
