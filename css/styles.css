@@ -33,7 +33,7 @@ body {
 }
 
 .container-page {
-  background-image: url("/img/main-background.jpg");
+  background-image: url("https://galadriel.ired.unam.mx/registro/img/main-background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
