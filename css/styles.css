@@ -59,6 +59,10 @@ body {
   height: 64px;
 }
 
+.data-event {
+  font-size: small;
+}
+
 @media (min-width: 768px) { .navbar .collapse { display: block !important; } }
 
 @media (min-width: 1200px) {
