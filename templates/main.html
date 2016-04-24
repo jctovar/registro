@@ -2,8 +2,8 @@
   <div class="container">
     <div class="jumbotron">
       <h1>Encuentro estudiantil</h1>
-      <p>¡inscribete a los talleres de psicologia!</p>
-      <p><a class="btn btn-primary btn-lg" href="#" role="button">Registrate</a></p>
+      <p>¡Inscribete a los talleres de psicología!</p>
+      <p><a class="btn btn-primary btn-lg" href="#/signin" role="button">Registrate</a></p>
     </div>
   </div>
 </div>
@@ -36,7 +36,12 @@
             </div>
             <div class="media-body">
               <h4 class="media-heading text-info">{{ item.event_name }}</h4>
-              <blockquote><small>{{ item.event_summary }}</small></blockquote>
+              <blockquote>
+                <p>Categoría; {{ item.event_type }}</p>
+                <p>Ubicación; {{ item.event_site }}</p>
+                <p>Costo de recuperación; {{ item.event_price | currency }}</p>
+                <span class="label label-info">{{ item.event_quota }} lugares</span>
+              </blockquote>
               <p>{{ item.event_date | date }}</p>
               <p><a href="#" class="btn btn-primary pull-right" role="button">Mas información</a></p>
             </div>
