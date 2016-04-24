@@ -1,4 +1,4 @@
-angular.module('starter', ['ngRoute', 'ngResource', 'ngCookies', 'ngSanitize', 'mgcrea.ngStrap', 'ngAnimate', 'main.controllers', 'main.models'])
+angular.module('starter', ['ngRoute', 'ngResource', 'ngCookies', 'ngSanitize', 'mgcrea.ngStrap', 'ui.gravatar', 'ngAnimate', 'main.controllers', 'main.models'])
   .run(function ($rootScope) {
     //al cambiar de rutas
     $rootScope.$on('$routeChangeStart', function()
@@ -22,6 +22,10 @@ angular.module('starter', ['ngRoute', 'ngResource', 'ngCookies', 'ngSanitize', '
         .when('/speakers', {
           templateUrl: 'templates/speakers.html',
           controller: 'speakersCtrl'
+        })
+        .when('/about', {
+          templateUrl: 'templates/about.html',
+          controller: 'aboutCtrl'
         })
         .otherwise({
           redirectTo: '/',

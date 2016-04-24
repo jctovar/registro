@@ -17,6 +17,21 @@
       </ul>
     </div>
     <div class="col-xs-12 col-sm-8 col-md-8">
-        
+        <form class="form-inline">
+            <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
+                <input type="search" class="form-control input-lg" placeholder="buscar..." ng-model="data.searchQuery">
+            </div>
+        </form>
+            <div class="panel panel-default" ng-repeat="speaker in speakers | filter: data.searchQuery" ng-click="null">
+                <div class="panel-body">
+                    <img gravatar-src="speaker.speaker_email" gravatar-size="48" alt="{{ speaker.speaker_email }}" class="pull-left image-profile">
+                    <address>
+                    <strong>{{ speaker.speaker_firstname }} {{ speaker.speaker_lastname }}</strong><br>
+                    <em class="text-info">{{ speaker.speaker_email }}</em><br>
+                    {{ speaker.speaker_summary }}</p>
+                    </address>
+                </div>
+            </div>
     </div>
 </div>

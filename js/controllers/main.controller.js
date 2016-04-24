@@ -1,8 +1,7 @@
 angular.module('main.controllers', [])
 .controller('mainCtrl', function ($scope, $route, $routeParams, $location, events) {
      var query = events.get(function() {
-      $scope.events = query.events;
-      console.log($scope.events);    
+      $scope.events = query.events; 
     }); 
 })
 
@@ -13,8 +12,10 @@ angular.module('main.controllers', [])
     console.log(JSON.stringify($cookies.username));
 })
 
-.controller('speakersCtrl', function ($scope, $route, $routeParams, $location) {
-      
+.controller('speakersCtrl', function ($scope, $route, $routeParams, $location, speakers) {
+      var query = speakers.get(function() {
+        $scope.speakers = query.speakers; 
+      }); 
 })
 
 .controller('loginCtrl', function ($scope, $route, $routeParams, $location) {
@@ -22,5 +23,9 @@ angular.module('main.controllers', [])
 })
 
 .controller('signinCtrl', function ($scope, $route, $routeParams, $location) {
+      
+})
+
+.controller('aboutCtrl', function ($scope, $route, $routeParams, $location) {
       
 });
