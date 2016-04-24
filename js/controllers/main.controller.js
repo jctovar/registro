@@ -13,6 +13,14 @@ angular.module('main.controllers', [])
     console.log(JSON.stringify($cookies.username));
 })
 
+.controller('speakersCtrl', function ($scope, $route, $routeParams, $location) {
+      
+})
+
+.controller('loginCtrl', function ($scope, $route, $routeParams, $location) {
+      
+})
+
 .controller('signinCtrl', function ($scope, $route, $routeParams, $location) {
       
 });

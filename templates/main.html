@@ -9,14 +9,14 @@
 </div>
 <div class="container page">
   <div class="row">
-    <div class="col-xs-6 col-md-4">
+    <div class="col-xs-12 col-sm-4 col-md-4">
       <ul class="list-group">
-        <li class="list-group-item">Ponentes</li>
-        <li class="list-group-item">Requisitos</li>
-        <li class="list-group-item">Costos</li>
+        <li class="list-group-item"><a href="#/speakers">Ponentes</a></li>
+        <li class="list-group-item"><a href="#/requeriments">Requisitos</a></li>
+        <li class="list-group-item"><a href="#/prices">Costos</a></li>
       </ul>
     </div>
-    <div class="col-xs-12 col-md-8">
+    <div class="col-xs-12 col-sm-8 col-md-8">
       <h2 class="text-primary">
         Eventos proximos a realizarse.
       </h2>
@@ -36,8 +36,8 @@
             </div>
             <div class="media-body">
               <h4 class="media-heading">{{ item.event_name }}</h4>
-              <p>{{ item.event_summary }}</p>
-              <p>{{ item.event_date | date }} <md-button class="md-raised">Button</md-button></p>
+              <blockquote><p>{{ item.event_summary }}</p></blockquote>
+              <p>{{ item.event_date | date }}</p>
               <p><a href="#" class="btn btn-primary pull-right" role="button">Mas información</a></p>
             </div>
           </div>

@@ -1,9 +1,9 @@
 body {
-  background-color: #fdfdfd;
+  background-color: #f0f0f0;
 }
 
 .container-header {
-  background-color: #fdfdfd;
+  background-color: #f0f0f0;
   color: #D3DAE4;
 }
 
@@ -11,8 +11,13 @@ body {
   margin: 10px;
 }
 
+.separator {
+  height: 150px;
+  padding-top: 50px;
+}
+
 .container-footer {
-   background-color: #fdfdfd;
+   background-color: #f0f0f0;
 }
 
 .footer {
@@ -20,8 +25,7 @@ body {
   color: #111111;
   padding: 10px;
   margin-left: auto;
-  margin-right: auto; 
-  
+  margin-right: auto;
 }
 
 .footer p {
@@ -35,7 +39,7 @@ body {
 }
 
 .page {
-  background-color: #ffffff;
+  background-color: #fdfdfd;
   padding-top: 20px;
   padding-bottom: 20px;
 }

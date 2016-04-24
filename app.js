@@ -15,6 +15,14 @@ angular.module('starter', ['ngRoute', 'ngResource', 'ngCookies', 'ngSanitize', '
           templateUrl: 'templates/signin.html',
           controller: 'signinCtrl'
         })
+        .when('/login', {
+          templateUrl: 'templates/login.html',
+          controller: 'loginCtrl'
+        })
+        .when('/speakers', {
+          templateUrl: 'templates/speakers.html',
+          controller: 'speakersCtrl'
+        })
         .otherwise({
           redirectTo: '/',
           templateUrl: 'templates/main.html',
