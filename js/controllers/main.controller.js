@@ -1,15 +1,15 @@
-angular.module('main.controllers', [])
+angular.module('main.controllers', ['main.models', 'main.auth'])
 .controller('mainCtrl', function ($scope, $route, $routeParams, $location, events) {
      var query = events.get(function() {
       $scope.events = query.events; 
     }); 
 })
 
-.controller('NavController', function ($scope, $location, $cookies) {
+.controller('NavController', function ($scope, $location, $cookies, auth) {
     //console.log($scope);
     //$cookies.nombrecookie = "unodepiera";
     //para acceder
-    console.log(JSON.stringify($cookies.username));
+    console.log('username:' + JSON.stringify($cookies.username));
 })
 
 .controller('speakersCtrl', function ($scope, $route, $routeParams, $location, speakers) {
@@ -21,9 +21,35 @@ angular.module('main.controllers', [])
       }); 
 })
 
-.controller('loginCtrl', function ($scope, $route, $routeParams, $location) {
+.controller('loginCtrl', function ($scope, $route, $routeParams, $location, auth) {
       $scope.separator_title = 'Inicia sesión';
       $scope.separator_subtitle = 'Ingresa al sitio';
+      
+      $scope.login = function () {
+        console.log($scope.username);
+        auth.login($scope.username, $scope.password);
+      }
+})
+
+.controller('profileCtrl', function($scope, $cookies, auth) {
+    console.log('username:' + JSON.stringify($cookies.username));
+})
+
+.controller('dashboardCtrl', function($scope, auth) {
+      $scope.separator_title = 'Centro de control';
+      $scope.separator_subtitle = 'Acciones disponibles';
+})
+
+.controller('passwordCtrl', function($scope, auth) {
+    
+})
+
+.controller('bankCtrl', function($scope, auth) {
+    
+})
+
+.controller('requestsCtrl', function($scope, auth) {
+    
 })
 
 .controller('signinCtrl', function ($scope, $route, $routeParams, $location) {
