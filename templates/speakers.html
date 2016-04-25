@@ -1,11 +1,4 @@
-<div class="container-page"> 
-    <div class="separator bg-primary">
-        <div class="container">
-            <h2>Ponentes</h2>
-            <p>Nuestros ponentes.</p>
-        </div>
-    </div>
-</div>
+<div id="separator" ng-include=" 'templates/separator.html' "></div>
 <div class="container page">
     <div class="row">
     <div class="col-xs-12 col-sm-4 col-md-4">
@@ -23,15 +16,17 @@
                 <input type="search" class="form-control input-lg" placeholder="buscar..." ng-model="data.searchQuery">
             </div>
         </form>
-            <div class="panel panel-default" ng-repeat="speaker in speakers | filter: data.searchQuery" ng-click="null">
-                <div class="panel-body">
-                    <img gravatar-src="speaker.speaker_email" gravatar-size="48" alt="{{ speaker.speaker_email }}" class="pull-left image-profile">
-                    <address>
-                    <strong>{{ speaker.speaker_firstname }} {{ speaker.speaker_lastname }}</strong><br>
-                    <em class="text-info">{{ speaker.speaker_email }}</em><br>
-                    {{ speaker.speaker_summary }}</p>
-                    </address>
-                </div>
+        <div class="media" ng-repeat="speaker in speakers | filter: data.searchQuery" ng-click="null">
+            <div class="media-left">
+                <img gravatar-src="speaker.speaker_email" gravatar-size="48" alt="{{ speaker.speaker_email }}" class="image-profile">
             </div>
+            <div class="media-body">
+                <address>
+                <strong class="text-capitalize">{{ speaker.speaker_firstname | lowercase }} {{ speaker.speaker_lastname | lowercase }}</strong><br>
+                <em class="text-info">{{ speaker.speaker_email }}</em><br>
+                <small>{{ speaker.speaker_summary }}</small>
+                </address>
+            </div>
+        </div>
     </div>
 </div>
