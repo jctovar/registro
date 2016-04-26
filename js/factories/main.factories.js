@@ -1,10 +1,15 @@
 angular.module('main.auth', ['ngResource'])
 
-.factory("auth", function($cookies, $cookieStore, $location) {
+.factory("auth", function($cookies, $cookieStore, $location, login) {
     return{
         login : function(username, password)
         {
             //creamos la cookie con el nombre que nos han pasado
+            var query = login.get({ id: username, password:  password}, function () {
+                $scope.login = query.login[0]; 
+            });
+            
+            
             $cookies.username = username,
             $cookies.password = password;
             //mandamos a la home

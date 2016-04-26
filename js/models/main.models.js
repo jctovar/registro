@@ -23,6 +23,13 @@ angular.module('main.models', ['ngResource'])
     });
 })
 
+.factory('login', function($resource, server_config) {
+	return $resource(server_config.url + '/login/:id', { account_key : server_config.key, id : '@_id' },
+    {
+        'update': { method:'PUT' }
+    });
+})
+
 .factory('accounts', function($resource, server_config) {
 	return $resource(server_config.url + '/accounts/:id', { account_key : server_config.key, id : '@_id' },
     {
