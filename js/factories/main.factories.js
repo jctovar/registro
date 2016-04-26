@@ -21,7 +21,7 @@ angular.module('main.auth', ['ngResource'])
         checkStatus : function()
         {
             //creamos un array con las rutas que queremos controlar
-            var rutasPrivadas = ["/dashboard","/profile"];
+            var rutasPrivadas = ["/dashboard","/profile","/password","/requests","/bank"];
             
             if(this.in_array($location.path(),rutasPrivadas) && typeof($cookies.username) == "undefined")
             {

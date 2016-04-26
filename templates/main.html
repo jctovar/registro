@@ -37,10 +37,10 @@
             <div class="media-body">
               <h4 class="media-heading text-info">{{ item.event_name }}</h4>
               <blockquote class="data-event">
-                <p>Ponente; {{ item.speaker_firstname }} {{ item.speaker_lastname }}</p>
-                <p>Categoría; {{ item.event_type }}</p>
-                <p>Ubicación; {{ item.event_site }}</p>
-                <p>Costo de recuperación; {{ item.event_price | currency }}</p>
+                <p>Ponente; {{ item.speaker_firstname }} {{ item.speaker_lastname }}<br>
+                Categoría; {{ item.event_type }}<br>
+                Ubicación; {{ item.event_site }}<br>
+                Costo de recuperación; {{ item.event_price | currency }}</p>
               </blockquote>
               <span class="label label-info">{{ item.event_quota }} lugares</span>
               <p>{{ item.event_date | date }}</p>

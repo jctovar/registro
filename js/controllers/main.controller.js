@@ -1,4 +1,4 @@
-angular.module('main.controllers', ['main.models', 'main.auth'])
+angular.module('main.controllers', ['main.models', 'main.auth', 'main.directives'])
 .controller('mainCtrl', function ($scope, $route, $routeParams, $location, events) {
      var query = events.get(function() {
       $scope.events = query.events; 
@@ -31,8 +31,13 @@ angular.module('main.controllers', ['main.models', 'main.auth'])
       }
 })
 
-.controller('profileCtrl', function($scope, $cookies, auth) {
-    console.log('username:' + JSON.stringify($cookies.username));
+.controller('profileCtrl', function($scope, $cookies, auth, accounts) {
+      $scope.separator_title = 'Perfil del usuario';
+      $scope.separator_subtitle = 'Datos personales del usuario';
+    
+      var query = accounts.get({ id: 1 }, function () {
+          $scope.account = query.accounts[0]; 
+      }); 
 })
 
 .controller('dashboardCtrl', function($scope, auth) {

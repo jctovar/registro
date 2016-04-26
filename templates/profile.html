@@ -7,20 +7,20 @@
                 <div class="panel-body">
                     <form>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Número de cuenta</label>
-                            <input type="number" class="form-control" id="firstname" placeholder="Número de cuenta de la UNAM">
+                            <label for="number">Número de cuenta</label>
+                            <input type="text" class="form-control" id="number" ng-model="account.account_username" ng-maxlength="9" placeholder="Número de cuenta de la UNAM">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Nombre</label>
-                            <input type="text" class="form-control" id="firstname" placeholder="Nombre completo">
+                            <label for="firstname">Nombre</label>
+                            <input type="text" class="form-control" id="firstname" ng-model="account.account_firstname" ng-maxlength="50" placeholder="Nombre completo" capitalize required>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Apellidos</label>
-                            <input type="text" class="form-control" id="lastname" placeholder="Tus apellidos">
+                            <label for="lastname">Apellidos</label>
+                            <input type="text" class="form-control" id="lastname" ng-model="account.account_lastname" ng-maxlength="50" placeholder="Tus apellidos" capitalize required>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Correo electrónico</label>
-                            <input type="email" class="form-control" id="email" placeholder="Correo electrónico">
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" class="form-control" id="email" ng-model="account.account_email" ng-maxlength="50" placeholder="Correo electrónico" required>
                         </div>
                         <button type="submit" class="btn btn-primary pull-right">Guardar</button>
                     </form>
