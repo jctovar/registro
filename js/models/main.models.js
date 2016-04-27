@@ -24,7 +24,7 @@ angular.module('main.models', ['ngResource'])
 })
 
 .factory('line', function($resource, server_config) {
-	return $resource(server_config.url + '/line/:id', { account_key : server_config.key, id : '@_id' },
+	return $resource(server_config.url + '/line/:id/:reference', { account_key : server_config.key, id : '@_id' },
     {
         'update': { method:'PUT' }
     });

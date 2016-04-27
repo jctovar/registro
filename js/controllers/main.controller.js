@@ -107,15 +107,15 @@ angular.module('main.controllers', ['main.models', 'main.auth', 'main.directives
       $scope.separator_title = 'Relación de referencias solicitadas ';
       $scope.separator_subtitle = 'Fichas de deposito generadas';
       
-      var query = line.get({ id: 2 }, function() {
+      var query = line.get({ id: $cookies.data.account_id }, function() {
         $scope.lines = query.line; 
       });
       
-      $scope.remove = function () {
-            var result = line.delete($scope.account, function() {
+      $scope.remove = function (reference_id) {
+            var result = line.delete({ id: $cookies.data.account_id, reference: reference_id }, function() {
                   console.log(result.line);
                   if (result.line.affectedRows == 1) {
-                        $location.path('/requests')
+                        $location.path('/dashboard')
                   };
             });
       }
