@@ -21,28 +21,51 @@ angular.module('main.controllers', ['main.models', 'main.auth', 'main.directives
       }); 
 })
 
+.controller('eventCtrl', function ($scope, $route, $routeParams, $location, events) {
+      
+      var query = events.get({ id: $routeParams.eventId }, function () {
+          $scope.event = query.events[0];
+          $scope.separator_title = $scope.event.area_name;
+          $scope.separator_subtitle = $scope.event.category_name; 
+      });
+})
+
 .controller('loginCtrl', function ($scope, $route, $routeParams, $location, auth) {
       $scope.separator_title = 'Inicia sesión';
       $scope.separator_subtitle = 'Ingresa al sitio';
       
       $scope.login = function () {
-        console.log($scope.username);
         auth.login($scope.username, $scope.password);
       }
 })
 
-.controller('profileCtrl', function($scope, $cookies, auth, accounts) {
+.controller('welcomeCtrl', function($scope, auth) {
+      $scope.separator_title = 'Bienvenido';
+      $scope.separator_subtitle = 'Solo falta un paso....';
+})
+
+.controller('profileCtrl', function($scope, $cookies, $location, auth, accounts) {
       $scope.separator_title = 'Perfil del usuario';
       $scope.separator_subtitle = 'Datos personales del usuario';
     
-      var query = accounts.get({ id: 1 }, function () {
+      var query = accounts.get({ id: $cookies.data.account_id }, function () {
           $scope.account = query.accounts[0]; 
-      }); 
+      });
+      
+      $scope.update = function () {
+            var result = accounts.update($scope.account, function() {
+                  console.log(result.accounts);
+                  if (result.accounts.affectedRows == 1) {
+                        $location.path('/dashboard')
+                  };
+            });
+      } 
 })
 
-.controller('dashboardCtrl', function($scope, auth) {
+.controller('dashboardCtrl', function($scope, $cookies, auth) {
       $scope.separator_title = 'Centro de control';
-      $scope.separator_subtitle = 'Acciones disponibles';
+      $scope.separator_subtitle = $cookies.data.account_firstname.concat(' ',$cookies.data.account_lastname);
+      console.log($cookies.data);
 })
 
 .controller('passwordCtrl', function($scope, auth) {
@@ -57,9 +80,19 @@ angular.module('main.controllers', ['main.models', 'main.auth', 'main.directives
     
 })
 
-.controller('signinCtrl', function ($scope, $route, $routeParams, $location) {
+.controller('signinCtrl', function ($scope, $route, $routeParams, $location, accounts) {
+      $scope.account = {};
       $scope.separator_title = 'Registrate';
       $scope.separator_subtitle = 'Rellena el siguiente formulario con tus datos.';
+      
+      $scope.signin = function () {
+            var result = accounts.save($scope.account, function() {
+                  console.log(result.accounts);
+                  if (result.accounts.affectedRows == 1) {
+                        $location.path('/welcome')
+                  };
+            });
+      }
 })
 
 .controller('aboutCtrl', function ($scope, $route, $routeParams, $location) {

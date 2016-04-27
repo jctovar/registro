@@ -5,28 +5,28 @@
             <div class="panel panel-primary">
                 <div class="panel-heading">Formulario de registro</div>
                 <div class="panel-body">
-                    <form>
+                    <form name="signinUserForm">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Número de cuenta</label>
-                            <input type="number" class="form-control" id="firstname" placeholder="Número de cuenta de la UNAM">
+                            <label for="number">Número de cuenta de la UNAM</label>
+                            <input type="text" class="form-control" id="username" placeholder="a 9 digitos" ng-minlength="9" ng-model="account.account_username" required>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Nombre</label>
-                            <input type="text" class="form-control" id="firstname" placeholder="Nombre completo">
+                            <label for="firstname">Nombre</label>
+                            <input type="text" class="form-control" id="firstname" placeholder="Nombre completo" ng-maxlength="50" ng-model="account.account_firstname" capitalize required>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Apellidos</label>
-                            <input type="text" class="form-control" id="lastname" placeholder="Tus apellidos">
+                            <label for="lastname">Apellidos</label>
+                            <input type="text" class="form-control" id="lastname" placeholder="Tus apellidos" ng-maxlength="50" ng-model="account.account_lastname" capitalize required>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Correo electrónico</label>
-                            <input type="email" class="form-control" id="email" placeholder="Correo electrónico">
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" class="form-control" id="email" placeholder="Correo electrónico valido" ng-maxlength="50" ng-model="account.account_email" required>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Contraseña</label>
-                            <input type="password" class="form-control" id="password" placeholder="Contraseña">
+                            <label for="password">Contraseña</label>
+                            <input type="password" class="form-control" id="password" placeholder="Contraseña de minimo 8 caracteres" ng-minlength="8" ng-model="account.account_password" required>
                         </div>
-                        <button type="submit" class="btn btn-primary pull-right">Registrarse</button>
+                        <button type="submit" ng-disabled="!signinUserForm.$valid" ng-click="signin(username)" class="btn btn-primary pull-right">Registarse</button>
                     </form>
                 </div>
             </div>

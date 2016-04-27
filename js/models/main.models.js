@@ -24,7 +24,7 @@ angular.module('main.models', ['ngResource'])
 })
 
 .factory('login', function($resource, server_config) {
-	return $resource(server_config.url + '/login/:id', { account_key : server_config.key, id : '@_id' },
+	return $resource(server_config.url + '/login/:id/:password', { account_key : server_config.key, id : '@_id' },
     {
         'update': { method:'PUT' }
     });

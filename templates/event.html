@@ -1,0 +1,24 @@
+<div id="separator" ng-include=" 'templates/separator.html' "></div>
+<div class="container page">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+            <div class="media">
+              <div class="media-left">
+                <a href="#">
+                  <img class="media-object image-list img-rounded" src="img/img_01.jpg" alt="image">
+                </a>
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading">{{ event.event_name }}</h4>
+                <h5>{{ event.event_type }}</h5>
+                <small>{{ event.event_summary }}</small>
+                <h3><span class="label label-success">costo {{ event.event_price | currency }}</span></h3>
+                <p>{{ event.event_date | date }}</p>
+                <p>{{ event.event_site }}</p>
+                <h4><span class="label label-info">{{ event.event_quota }} lugares</span></h4>
+              </div>
+            </div>
+            <a href="#/request/{{ event.event_id }}" class="btn btn-primary pull-right" role="button">Inscribirse</a>
+        </div>
+    </div>
+</div>

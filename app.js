@@ -11,9 +11,21 @@ angular.module('starter', ['ngRoute', 'ngResource', 'ngCookies', 'ngSanitize', '
 
   .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
       $routeProvider
+        .when('/event/:eventId', {
+          templateUrl: 'templates/event.html',
+          controller: 'eventCtrl'
+        })
+        .when('/request/:eventId', {
+          templateUrl: 'templates/request.html',
+          controller: 'eventCtrl'
+        })
         .when('/signin', {
           templateUrl: 'templates/signin.html',
           controller: 'signinCtrl'
+        })
+        .when('/welcome', {
+          templateUrl: 'templates/welcome.html',
+          controller: 'welcomeCtrl'
         })
         .when('/login', {
           templateUrl: 'templates/login.html',

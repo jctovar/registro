@@ -4,16 +4,21 @@ angular.module('main.auth', ['ngResource'])
     return{
         login : function(username, password)
         {
-            //creamos la cookie con el nombre que nos han pasado
-            var query = login.get({ id: username, password:  password}, function () {
-                $scope.login = query.login[0]; 
+            var query = login.get({ id: username, password:  password }, function () {
+                if (query.login[0] && query.login[0].account_email) {
+                    console.log(query.login[0]);
+                    $cookies.username = username,
+                    $cookies.password = password;
+                    $cookies.accountid = query.login[0].account_id;
+                    $cookies.data = query.login[0];
+                    //mandamos al dashboard
+                    $location.path("/dashboard");
+                } else {
+                    console.log('error, not found');
+                    $location.path("/login");
+                }
             });
-            
-            
-            $cookies.username = username,
-            $cookies.password = password;
-            //mandamos a la home
-            $location.path("/dashboard");
+              
         },
         logout : function()
         {
@@ -27,15 +32,15 @@ angular.module('main.auth', ['ngResource'])
         {
             //creamos un array con las rutas que queremos controlar
             var rutasPrivadas = ["/dashboard","/profile","/password","/requests","/bank"];
-            
+            console.log('path; ' + $location.path());
             if(this.in_array($location.path(),rutasPrivadas) && typeof($cookies.username) == "undefined")
             {
                 $location.path("/login");
             }
             //en el caso de que intente acceder al login y ya haya iniciado sesión lo mandamos a la home
-            if(this.in_array("/login",rutasPrivadas) && typeof($cookies.username) != "undefined")
+            if(this.in_array($location.path(),["/login"]) && typeof($cookies.username) != "undefined")
             {
-                $location.path("/");
+                $location.path("/dashboard");
             }
         },
         in_array : function(needle, haystack)

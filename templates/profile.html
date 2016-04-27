@@ -22,7 +22,7 @@
                             <label for="email">Correo electrónico</label>
                             <input type="email" class="form-control" id="email" ng-model="account.account_email" ng-maxlength="50" placeholder="Correo electrónico" required>
                         </div>
-                        <button type="submit" class="btn btn-primary pull-right">Guardar</button>
+                        <button type="submit" ng-click="update(username)" class="btn btn-primary pull-right">Guardar</button>
                     </form>
                 </div>
             </div>
