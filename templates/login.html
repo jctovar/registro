@@ -2,25 +2,22 @@
 <div class="container page">
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-            <div class="panel panel-primary">
-                <div class="panel-heading">Formulario de ingreso</div>
-                <div class="panel-body">
-                    <form name="loginUserForm">
-                        <div class="form-group">
-                            <label for="email">Correo electrónico</label>
-                            <input type="email" class="form-control" id="email" placeholder="Tú correo electrónico" ng-model="username" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Contraseña</label>
-                            <input type="password" class="form-control" id="password" placeholder="Tu contraseña" ng-model="password" required>
-                        </div>
-                        <button type="submit" ng-disabled="!loginUserForm.$valid" ng-click="login(username)" class="btn btn-primary btn-lg btn-block">Iniciar sesión</button>
-                    </form>
+            <!-- inicia formulario -->
+            <form name="loginUserForm">
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" class="form-control" id="email" placeholder="Tú correo electrónico" ng-model="username" required>
                 </div>
-            </div>
-            <div>
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" class="form-control" id="password" placeholder="Tu contraseña" ng-model="password" required>
+                </div>
+                <button type="submit" ng-disabled="!loginUserForm.$valid" ng-click="login(username)" class="btn btn-primary btn-lg btn-block">Iniciar sesión</button>
+            </form>
+            <!-- termina formulario -->
+            <div class="note-info">
                 <small>¿No tienes una cuenta? <a href="#/signin">Regístrate »</a></small>
-            </div>
+            <div>
         </div>
     </div>
 </div>

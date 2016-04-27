@@ -11,6 +11,10 @@ angular.module('starter', ['ngRoute', 'ngResource', 'ngCookies', 'ngSanitize', '
 
   .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
       $routeProvider
+        .when('/events', {
+          templateUrl: 'templates/events.html',
+          controller: 'eventsCtrl'
+        })
         .when('/event/:eventId', {
           templateUrl: 'templates/event.html',
           controller: 'eventCtrl'

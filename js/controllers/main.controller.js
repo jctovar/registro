@@ -12,6 +12,15 @@ angular.module('main.controllers', ['main.models', 'main.auth', 'main.directives
     console.log('username:' + JSON.stringify($cookies.username));
 })
 
+.controller('eventsCtrl', function ($scope, $route, $routeParams, $location, events) {
+      $scope.separator_title = 'Nuestros proximos eventos';
+      $scope.separator_subtitle = 'Listado de eventos, talleres y cursos';
+      
+      var query = events.get(function() {
+        $scope.events = query.events; 
+      }); 
+})
+
 .controller('speakersCtrl', function ($scope, $route, $routeParams, $location, speakers) {
       $scope.separator_title = 'Nuestros ponentes';
       $scope.separator_subtitle = 'Directorio de ponentes y profesores';
@@ -94,13 +103,22 @@ angular.module('main.controllers', ['main.models', 'main.auth', 'main.directives
       }
 })
 
-.controller('requestsCtrl', function($scope, auth, line) {
+.controller('requestsCtrl', function($scope, $cookies, $location, auth, line) {
       $scope.separator_title = 'Relación de referencias solicitadas ';
       $scope.separator_subtitle = 'Fichas de deposito generadas';
       
       var query = line.get({ id: 2 }, function() {
         $scope.lines = query.line; 
       });
+      
+      $scope.remove = function () {
+            var result = line.delete($scope.account, function() {
+                  console.log(result.line);
+                  if (result.line.affectedRows == 1) {
+                        $location.path('/requests')
+                  };
+            });
+      }
 })
 
 .controller('signinCtrl', function ($scope, $route, $routeParams, $location, accounts) {
