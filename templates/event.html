@@ -13,7 +13,7 @@
                 <h5>{{ event.event_type }}</h5>
                 <small>{{ event.event_summary }}</small>
                 <h3><span class="label label-success">costo {{ event.event_price | currency }}</span></h3>
-                <p>{{ event.event_date | date }}</p>
+                <p>{{ event.event_date | date:'medium' }}</p>
                 <p>{{ event.event_site }}</p>
                 <h4><span class="label label-info">{{ event.event_quota }} lugares</span></h4>
               </div>

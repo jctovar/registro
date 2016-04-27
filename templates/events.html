@@ -3,15 +3,12 @@
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-md-4">
       <ul class="list-group">
+        <li class="list-group-item"><a href="#/">Inicio</a></li>
+        <li class="list-group-item"><a href="#/events">Eventos</a></li>
         <li class="list-group-item"><a href="#/speakers">Ponentes</a></li>
-        <li class="list-group-item"><a href="#/requeriments">Requisitos</a></li>
-        <li class="list-group-item"><a href="#/prices">Costos</a></li>
       </ul>
     </div>
     <div class="col-xs-12 col-sm-8 col-md-8">
-      <h2 class="text-primary">
-        Eventos proximos a realizarse.
-      </h2>
       <form class="form-inline">
           <div class="input-group">
               <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
@@ -37,7 +34,7 @@
                 Costo de recuperación; {{ item.event_price | currency }}</p>
               </blockquote>
               <span class="label label-info">{{ item.event_quota }} lugares</span>
-              <p>{{ item.event_date | date }}</p>
+              <p>{{ item.event_date | date:'medium' }}</p>
               <p><a href="#/event/{{ item.event_id }}" class="btn btn-primary pull-right" role="button">Mas información</a></p>
             </div>
           </div>
