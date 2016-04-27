@@ -12,9 +12,11 @@
                         Fecha de solicitud: {{ item.accounts_has_references_timestamp | date }}<br>
                         Confirmación: {{ item.accounts_has_references_on }}
                     </address>
+                    <!--
                     <button type="button" ng-click="print(item.reference_id)" class="btn btn-success btn-lg">
                         <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
                     </button>
+                    -->
                     <button type="button" ng-click="remove(item.reference_id)" class="btn btn-danger btn-lg">
                         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                     </button>
