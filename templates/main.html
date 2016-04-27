@@ -7,51 +7,27 @@
     </div>
   </div>
 </div>
-<div class="container page">
+<div class="container slogan">
   <div class="row">
-    <div class="col-xs-12 col-sm-4 col-md-4">
-      <ul class="list-group">
-        <li class="list-group-item"><a href="#/events">Eventos</a></li>
-        <li class="list-group-item"><a href="#/speakers">Ponentes</a></li>
-        <li class="list-group-item"><a href="#/requeriments">Requisitos</a></li>
-        <li class="list-group-item"><a href="#/prices">Costos</a></li>
-      </ul>
-    </div>
-    <div class="col-xs-12 col-sm-8 col-md-8">
-      <h2 class="text-primary">
-        Eventos proximos a realizarse.
-      </h2>
-      <form class="form-inline">
-          <div class="input-group">
-              <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
-              <input type="search" class="form-control input-lg" placeholder="buscar evento..." ng-model="data.searchQuery">
-          </div>
-      </form>
-      <div class="media" ng-repeat="item in events | filter: data.searchQuery" ng-click="null">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <div class="media-left">
-              <a href="#">
-                <img class="media-object image-list img-rounded" src="img/img_01.jpg" alt="image">
-              </a>
-            </div>
-            <div class="media-body">
-              <h4 class="media-heading text-info">{{ item.event_name }}</h4>
-              <blockquote class="data-event">
-                <p>
-                <strong>{{ item.event_type }}</strong><br>
-                <span class="text-capitalize">Area; {{ item.area_name }}</span><br>
-                <span>Categoría; {{ item.category_name }}</span><br>
-                Ubicación; {{ item.event_site }}<br>
-                Costo de recuperación; {{ item.event_price | currency }}</p>
-              </blockquote>
-              <span class="label label-info">{{ item.event_quota }} lugares</span>
-              <p>{{ item.event_date | date }}</p>
-              <p><a href="#/event/{{ item.event_id }}" class="btn btn-primary pull-right" role="button">Mas información</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+      <h2 class="text-center">Sistema de registro a eventos</h2>
     </div>
   </div>
+</div>
+<div class="container page">
+  <h4 class="text-center"><a href="#/events">Ver el catalogo completo de eventos</a></h4>
+  <div class="row">
+    <div class="col-sm-4 col-md-4">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut fermentum leo ligula, at varius libero elementum sit amet. Duis et eros ante. Praesent eleifend finibus orci vitae ullamcorper. Phasellus molestie quam facilisis lacus bibendum, sollicitudin ultricies massa ultricies. Vestibulum molestie tempor ex eget vehicula.
+    </div>
+    <div class="col-sm-4 col-md-4">
+      Vestibulum tempor, felis non pretium blandit, dui dolor egestas mauris, nec accumsan tortor lectus ut sem. Sed in dictum tortor, vel fringilla sapien. Integer dignissim ipsum at velit tempor, vitae posuere ex sagittis. Suspendisse potenti. Ut libero urna, consectetur ac dictum vitae, sagittis sit amet magna.
+    </div>
+    <div class="col-sm-4 col-md-4">
+      Sed et ligula non enim eleifend tincidunt in non nisi. Maecenas a tempus augue. Suspendisse vel rhoncus velit. Aenean id euismod ex, vitae faucibus nibh.
+    </div>
+  </div>
+</div>
+<div class="container">
+  Siguenos en la redes sociales »
 </div>

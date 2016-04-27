@@ -19,6 +19,15 @@ body {
   font-weight: lighter !important;
 }
 
+.slogan {
+  background-color: #337ab7;
+  color: #f0f0f0;
+}
+
+.slogan h2 {
+  font-weight: lighter !important;
+}
+
 .container-footer {
    background-color: #f0f0f0;
 }
