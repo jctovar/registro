@@ -1,0 +1,20 @@
+<div id="separator" ng-include=" 'templates/separator.html' "></div>
+<div class="container page">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Formato de pago en banco</div>
+                <div class="panel-body">
+                    <h3 class="text-primary">BANCOMER</h3>
+                    <blockquote>
+                        <samp>Beneficiario: UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO</samp><br>
+                        <samp>Convenio: {{ line.reference_account }}</samp><br>
+                        <samp>Referencia: {{ line.reference_line }}</samp><br>
+                        <samp>Importe: {{ line.reference_price | currency }}</samp>
+                    </blockquote>
+                    <button type="submit" ng-click="request()" class="btn btn-primary pull-right">Generar ficha</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

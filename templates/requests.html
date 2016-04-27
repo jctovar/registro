@@ -1,1 +1,19 @@
 <div id="separator" ng-include=" 'templates/separator.html' "></div>
+<div class="container page">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="item in lines">
+                    <address>
+                        <strong>{{ item.category_name }}</strong><br>
+                        Convenio: {{ item.reference_account }}<br>
+                        Referencia: {{ item.reference_line }}<br>
+                        Importe: {{ item.reference_price | currency }}<br>
+                        Fecha de solicitud: {{ item.accounts_has_references_timestamp | date }}<br>
+                        Confirmación: {{ accounts_has_references_on }}
+                    </address>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -72,12 +72,35 @@ angular.module('main.controllers', ['main.models', 'main.auth', 'main.directives
     
 })
 
-.controller('bankCtrl', function($scope, auth) {
-    
+.controller('bankCtrl', function($scope, $cookies, $location, auth, line) {
+      $scope.separator_title = 'Ficha de deposito Bancomer ';
+      $scope.separator_subtitle = 'Genera una ficha de deposito';
+      
+      var query = line.get(function() {
+        $scope.line = query.line[0];
+        $scope.line.account_id = $cookies.data.account_id; 
+      });
+      
+      $scope.request = function () {
+            var request = {};
+            request.account_id = $scope.line.account_id;
+            request.reference_id = $scope.line.reference_id;
+            var result = line.save(request, function() {
+                  console.log(result.line);
+                  if (result.line.affectedRows == 1) {
+                        $location.path('/requests')
+                  };
+            });
+      }
 })
 
-.controller('requestsCtrl', function($scope, auth) {
-    
+.controller('requestsCtrl', function($scope, auth, line) {
+      $scope.separator_title = 'Relación de referencias solicitadas ';
+      $scope.separator_subtitle = 'Fichas de deposito generadas';
+      
+      var query = line.get({ id: 2 }, function() {
+        $scope.lines = query.line; 
+      });
 })
 
 .controller('signinCtrl', function ($scope, $route, $routeParams, $location, accounts) {
