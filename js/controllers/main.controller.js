@@ -1,4 +1,4 @@
-angular.module('main.controllers', ['main.models', 'main.auth', 'main.directives'])
+angular.module('main.controllers', ['main.models', 'main.auth', 'main.directives', 'pdf'])
 .controller('mainCtrl', function ($scope, $route, $routeParams, $location, events) {
      var query = events.get(function() {
       $scope.events = query.events; 
