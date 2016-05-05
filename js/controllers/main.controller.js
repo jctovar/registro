@@ -62,7 +62,7 @@ angular.module('main.controllers', ['main.models', 'main.auth', 'main.directives
       });
       
       $scope.update = function () {
-            var result = accounts.update($scope.account, function() {
+            var result = accounts.update($scope.account, function () {
                   console.log(result.accounts);
                   if (result.accounts.affectedRows == 1) {
                         $location.path('/dashboard')
@@ -77,8 +77,23 @@ angular.module('main.controllers', ['main.models', 'main.auth', 'main.directives
       console.log($cookies.data);
 })
 
-.controller('passwordCtrl', function($scope, auth) {
-    
+.controller('passwordCtrl', function($scope, $cookies, $location, auth, accounts) {
+      $scope.separator_title = 'Cambio de contraseña';
+      $scope.separator_subtitle = 'Aqui puedes cambiar tu contraseña de ingreso';
+      
+      var query = accounts.get({ id: $cookies.data.account_id }, function () {
+          $scope.account = query.accounts[0]; 
+      });
+            
+      $scope.password = function () {
+            console.log($scope.account);
+            var result = accounts.update($scope.account, function () {
+                  console.log(result.accounts);
+                  if (result.accounts.affectedRows == 1) {
+                        $location.path('/dashboard')
+                  };
+            });
+      }
 })
 
 .controller('bankCtrl', function($scope, $cookies, $location, auth, line) {
