@@ -109,6 +109,8 @@ angular.module('main.controllers', ['main.models', 'main.auth', 'main.directives
             var request = {};
             request.account_id = $scope.line.account_id;
             request.reference_id = $scope.line.reference_id;
+            request.event_id = 18;
+            request.accounts_has_references_serie = 0;
             var result = line.save(request, function() {
                   console.log(result.line);
                   if (result.line.affectedRows == 1) {
