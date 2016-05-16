@@ -19,9 +19,8 @@ angular.module('main.controllers', ['main.models', 'main.auth', 'main.directives
 
 .controller('SeparatorController', function ($scope) {
       if(typeof(sessionStorage.id) != "undefined") {
-            $scope.user_name = sessionStorage.getItem('firstname') + ' ' + sessionStorage.getItem('lastname');
+            $scope.user_name = sessionStorage.firstname + ' ' + sessionStorage.lastname;
       }
-      
 })
 
 .controller('eventsCtrl', function ($scope, $route, $routeParams, $location, events) {
