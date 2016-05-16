@@ -5,11 +5,23 @@ angular.module('main.controllers', ['main.models', 'main.auth', 'main.directives
     }); 
 })
 
-.controller('NavController', function ($scope, $location, $cookies, auth) {
-    //console.log($scope);
-    //$cookies.nombrecookie = "unodepiera";
-    //para acceder
-    console.log('username:' + JSON.stringify($cookies.username));
+.controller('NavController', function ($scope, $route, $location, auth) {
+    if(typeof(sessionStorage.id) == "undefined") {
+          $scope.auth = 0;
+    } else {
+          $scope.auth = 1;
+    }
+    
+    $scope.logout = function () {
+          auth.logout();
+    }     
+})
+
+.controller('SeparatorController', function ($scope) {
+      if(typeof(sessionStorage.id) != "undefined") {
+            $scope.user_name = sessionStorage.getItem('firstname') + ' ' + sessionStorage.getItem('lastname');
+      }
+      
 })
 
 .controller('eventsCtrl', function ($scope, $route, $routeParams, $location, events) {
@@ -53,11 +65,11 @@ angular.module('main.controllers', ['main.models', 'main.auth', 'main.directives
       $scope.separator_subtitle = 'Solo falta un paso....';
 })
 
-.controller('profileCtrl', function($scope, $cookies, $location, auth, accounts) {
+.controller('profileCtrl', function($scope, $location, auth, accounts) {
       $scope.separator_title = 'Perfil del usuario';
       $scope.separator_subtitle = 'Datos personales del usuario';
     
-      var query = accounts.get({ id: $cookies.data.account_id }, function () {
+      var query = accounts.get({ id: sessionStorage.id }, function () {
           $scope.account = query.accounts[0]; 
       });
       
@@ -71,17 +83,16 @@ angular.module('main.controllers', ['main.models', 'main.auth', 'main.directives
       } 
 })
 
-.controller('dashboardCtrl', function($scope, $cookies, auth) {
+.controller('dashboardCtrl', function($scope, auth) {
       $scope.separator_title = 'Centro de control';
-      $scope.separator_subtitle = $cookies.data.account_firstname.concat(' ',$cookies.data.account_lastname);
-      console.log($cookies.data);
+      $scope.separator_subtitle = sessionStorage.getItem('firstname') + ' ' + sessionStorage.getItem('lastname');
 })
 
-.controller('passwordCtrl', function($scope, $cookies, $location, auth, accounts) {
+.controller('passwordCtrl', function($scope, $location, auth, accounts) {
       $scope.separator_title = 'Cambio de contraseña';
       $scope.separator_subtitle = 'Aqui puedes cambiar tu contraseña de ingreso';
       
-      var query = accounts.get({ id: $cookies.data.account_id }, function () {
+      var query = accounts.get({ id: sessionStorage.id }, function () {
           $scope.account = query.accounts[0]; 
       });
             
@@ -96,13 +107,13 @@ angular.module('main.controllers', ['main.models', 'main.auth', 'main.directives
       }
 })
 
-.controller('bankCtrl', function($scope, $cookies, $location, auth, line) {
+.controller('bankCtrl', function($scope, $location, auth, line) {
       $scope.separator_title = 'Ficha de deposito Bancomer ';
       $scope.separator_subtitle = 'Genera una ficha de deposito';
       
       var query = line.get(function() {
         $scope.line = query.line[0];
-        $scope.line.account_id = $cookies.data.account_id; 
+        $scope.line.account_id = sessionStorage.id; 
       });
       
       $scope.request = function () {
@@ -120,16 +131,16 @@ angular.module('main.controllers', ['main.models', 'main.auth', 'main.directives
       }
 })
 
-.controller('requestsCtrl', function($scope, $cookies, $location, auth, line) {
+.controller('requestsCtrl', function($scope, $location, auth, line) {
       $scope.separator_title = 'Relación de referencias solicitadas ';
       $scope.separator_subtitle = 'Fichas de deposito generadas';
       
-      var query = line.get({ id: $cookies.data.account_id }, function() {
+      var query = line.get({ id: sessionStorage.id }, function() {
         $scope.lines = query.line; 
       });
       
       $scope.remove = function (reference_id) {
-            var result = line.delete({ id: $cookies.data.account_id, reference: reference_id }, function() {
+            var result = line.delete({ id: sessionStorage.id, reference: reference_id }, function() {
                   console.log(result.line);
                   if (result.line.affectedRows == 1) {
                         $location.path('/dashboard')

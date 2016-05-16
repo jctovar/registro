@@ -1,16 +1,16 @@
 angular.module('main.auth', ['ngResource'])
 
-.factory("auth", function($cookies, $cookieStore, $location, login) {
+.factory("auth", function($location, login) {
     return{
         login : function(username, password)
         {
             var query = login.get({ id: username, password:  password }, function () {
                 if (query.login[0] && query.login[0].account_email) {
-                    console.log(query.login[0]);
-                    $cookies.username = username,
-                    $cookies.password = password;
-                    $cookies.accountid = query.login[0].account_id;
-                    $cookies.data = query.login[0];
+                    //$cookies.put('data','1');
+                    sessionStorage.email = query.login[0].account_email;
+                    sessionStorage.id = query.login[0].account_id;
+                    sessionStorage.firstname = query.login[0].account_firstname;
+                    sessionStorage.lastname = query.login[0].account_lastname;
                     //mandamos al dashboard
                     $location.path("/dashboard");
                 } else {
@@ -23,8 +23,7 @@ angular.module('main.auth', ['ngResource'])
         logout : function()
         {
             //al hacer logout eliminamos la cookie con $cookieStore.remove
-            $cookieStore.remove("username"),
-            $cookieStore.remove("password");
+            sessionStorage.clear();
             //mandamos al login
             $location.path("/");
         },
@@ -33,12 +32,12 @@ angular.module('main.auth', ['ngResource'])
             //creamos un array con las rutas que queremos controlar
             var rutasPrivadas = ["/dashboard","/profile","/password","/requests","/bank"];
             console.log('path; ' + $location.path());
-            if(this.in_array($location.path(),rutasPrivadas) && typeof($cookies.username) == "undefined")
+            if(this.in_array($location.path(),rutasPrivadas) && typeof(sessionStorage.id) == "undefined")
             {
                 $location.path("/login");
             }
             //en el caso de que intente acceder al login y ya haya iniciado sesión lo mandamos a la home
-            if(this.in_array($location.path(),["/login"]) && typeof($cookies.username) != "undefined")
+            if(this.in_array($location.path(),["/login"]) && typeof(sessionStorage.id) != "undefined")
             {
                 $location.path("/dashboard");
             }

@@ -1,4 +1,4 @@
-angular.module('starter', ['ngRoute', 'ngResource', 'ngCookies', 'ngSanitize', 'mgcrea.ngStrap', 'ui.gravatar', 'ngAnimate', 'main.controllers'])
+angular.module('starter', ['ngRoute', 'ngResource', 'ngSanitize', 'mgcrea.ngStrap', 'base64','ui.gravatar', 'ngAnimate', 'main.controllers'])
   .run(function ($rootScope, auth) {
     //al cambiar de rutas
     $rootScope.$on('$routeChangeStart', function()

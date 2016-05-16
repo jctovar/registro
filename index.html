@@ -12,9 +12,7 @@
     <link href="css/styles.css" rel="stylesheet">
   </head>
   <body ng-app="starter" ng-cloak>
-    <div class="container-header">
-        <div id="menu" ng-include=" 'templates/menu.html' "></div>
-    </div>
+    
     <!-- Start content -->
     <div id="content" ng-view><img class="gears" src="img/loading.gif"></div>
     <!-- End content -->
@@ -25,7 +23,6 @@
     </div>
     <!-- Angular requires next libraries -->
     <script src="bower_components/angular/angular.min.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-resource/angular-resource.min.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
@@ -35,6 +32,7 @@
     <script src="bower_components/angular-strap/dist/angular-strap.min.js"></script>
     <script src="bower_components/angular-strap/dist/angular-strap.tpl.min.js"></script>
     <script src="bower_components/angular-pdf/dist/angular-pdf.js"></script>
+    <script src="bower_components/angular-base64/angular-base64.min.js"></script>
     <!-- Main application js -->
     <script src="app.js"></script>
     <script src="js/controllers/main.controller.js"></script>
