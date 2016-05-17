@@ -18,7 +18,7 @@
                 <h3><span class="label label-success">costo {{ event.event_price | currency }}</span></h3>
                 <p>{{ event.event_date | date:'medium' }}</p>
                 <p>{{ event.event_site }}</p>
-                <h4><span class="label label-info">{{ event.event_quota }} lugares</span></h4>
+                <h4><span class="label label-info">{{ event.event_quota - event.request_quantity }} lugares disponibles</span></h4>
               </div>
             </div>
             <a href="#/login" class="btn btn-primary pull-right" role="button">Inscribirse</a>

@@ -14,7 +14,10 @@
                         Referencia: {{ item.reference_line }}<br>
                         Importe: {{ item.reference_price | currency }}<br>
                         Fecha de solicitud: {{ item.accounts_has_references_timestamp | date }}<br>
-                        Confirmación: {{ item.accounts_has_references_on }}
+                        Evento: {{ item.event_name }}<br>
+                        Confirmación: <span ng-show="item.accounts_has_references_on" class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span><br>
+                        
+                        
                     </address>
                     <!--
                     <button type="button" ng-click="print(item.reference_id)" class="btn btn-success btn-lg">
@@ -22,7 +25,7 @@
                     </button>
                     -->
                     <button ng-hide="item.accounts_has_references_on" type="button" ng-click="remove(item.reference_id)" class="btn btn-danger btn-lg">
-                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Retirar solicitud
                     </button>
                 </li>
             </ul>
