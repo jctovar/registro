@@ -36,7 +36,7 @@
                 Ubicación; {{ item.event_site }}<br>
                 Costo de recuperación; {{ item.event_price | currency }}</p>
               </blockquote>
-              <span class="label label-info">{{ item.event_quota }} lugares</span>
+              <span class="label label-info">{{ item.event_quota - item.request_quantity }} lugares</span>
               <p>{{ item.event_date | date:'medium' }}</p>
               <p><a href="#/event/{{ item.event_id }}" class="btn btn-primary pull-right" role="button">Mas información</a></p>
             </div>
