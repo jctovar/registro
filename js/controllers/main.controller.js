@@ -1,4 +1,5 @@
 angular.module('main.controllers', ['main.models', 'main.auth', 'main.directives', 'pdf'])
+
 .controller('mainCtrl', function ($scope, $route, $routeParams, $location, events) {
      var query = events.get(function() {
       $scope.events = query.events; 
@@ -21,6 +22,10 @@ angular.module('main.controllers', ['main.models', 'main.auth', 'main.directives
       if(typeof(sessionStorage.id) != "undefined") {
             $scope.user_name = sessionStorage.firstname + ' ' + sessionStorage.lastname;
       }
+})
+
+.controller('BreadcrumbController', function ($scope, $route) {
+      
 })
 
 .controller('eventsCtrl', function ($scope, $route, $routeParams, $location, events) {
@@ -66,7 +71,7 @@ angular.module('main.controllers', ['main.models', 'main.auth', 'main.directives
 
 .controller('profileCtrl', function($scope, $location, auth, accounts) {
       $scope.separator_title = 'Perfil del usuario';
-      $scope.separator_subtitle = 'Datos personales del usuario';
+      $scope.current = 'Perfil';
     
       var query = accounts.get({ id: sessionStorage.id }, function () {
           $scope.account = query.accounts[0]; 
@@ -89,7 +94,7 @@ angular.module('main.controllers', ['main.models', 'main.auth', 'main.directives
 
 .controller('passwordCtrl', function($scope, $location, auth, accounts) {
       $scope.separator_title = 'Cambio de contraseña';
-      $scope.separator_subtitle = 'Aqui puedes cambiar tu contraseña de ingreso';
+      $scope.current = 'Contraseña';
       
       var query = accounts.get({ id: sessionStorage.id }, function () {
           $scope.account = query.accounts[0]; 
@@ -108,7 +113,7 @@ angular.module('main.controllers', ['main.models', 'main.auth', 'main.directives
 
 .controller('bankCtrl', function($scope, $location, auth, line) {
       $scope.separator_title = 'Ficha de deposito Bancomer ';
-      $scope.separator_subtitle = 'Genera una ficha de deposito';
+      $scope.current = 'Referencia';
       
       var query = line.get(function() {
         $scope.line = query.line[0];
@@ -132,7 +137,7 @@ angular.module('main.controllers', ['main.models', 'main.auth', 'main.directives
 
 .controller('requestsCtrl', function($scope, $location, auth, line) {
       $scope.separator_title = 'Relación de referencias solicitadas ';
-      $scope.separator_subtitle = 'Fichas de deposito generadas';
+      $scope.current = 'Solicitudes';
       
       var query = line.get({ id: sessionStorage.id }, function() {
         $scope.lines = query.line; 
