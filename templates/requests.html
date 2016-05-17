@@ -6,8 +6,10 @@
     <div id="breadcrumb" ng-include=" 'templates/breadcrumb.html' "></div>
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-            <ul class="list-group">
-                <li class="list-group-item" ng-repeat="item in lines">
+            <div class="media" ng-repeat="item in lines">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Solicitud de pago</div>
+                    <div class="panel-body">
                     <address>
                         <strong>{{ item.category_name }}</strong><br>
                         Convenio: {{ item.reference_account }}<br>
@@ -27,8 +29,9 @@
                     <button ng-hide="item.accounts_has_references_on" type="button" ng-click="remove(item.reference_id)" class="btn btn-danger btn-lg">
                         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Retirar solicitud
                     </button>
-                </li>
-            </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
